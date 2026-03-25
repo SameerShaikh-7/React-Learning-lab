@@ -1,0 +1,71 @@
+:root {
+  --bg-color: #fcf9f2;
+  --card-bg: #ffffff;
+  --accent: #ff8a65;
+  --text-dark: #2d3436;
+  --text-light: #636e72;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-dark);
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Suggestion Card */
+.suggestion-box {
+  background: var(--card-bg);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  margin-bottom: 40px;
+  border: 1px solid #f1eee4;
+  animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.game-title { color: var(--accent); margin: 10px 0; }
+.game-desc { color: var(--text-light); line-height: 1.6; }
+
+/* Buttons */
+.roll-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 138, 101, 0.3);
+  transition: 0.3s;
+}
+
+.roll-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255, 138, 101, 0.4); }
+
+/* PS5 List Grid */
+.ps5-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.ps5-card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #eee;
+  text-align: left;
+}
