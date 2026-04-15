@@ -32,12 +32,12 @@ const quotes = [
       <main className="relative z-10 w-full max-w-lg">
         <div className="group relative">
           {/* Outer Border Glow */}
-          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+          <div className="absolute -inset-0.5 bg-linear-to-r from-blue-500 to-cyan-500 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
 
           <div className="relative bg-gray-900/40 border border-white/10 backdrop-blur-2xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl flex flex-col items-center">
 
 
-            <div className="min-h-[120px] flex items-center">
+            <div className="min-h-30 flex items-center">
               <p className="text-2xl md:text-3xl font-semibold leading-snug text-center text-gray-100 tracking-tight">
                 "{quote.text}"
               </p>
