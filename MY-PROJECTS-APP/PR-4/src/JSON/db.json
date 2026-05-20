@@ -1,0 +1,123 @@
+{
+  "product": [
+    {
+      "id": "E106_El",
+      "p_name": "Mechanical Gaming Keyboard",
+      "p_price": 5500,
+      "p_stock": 18,
+      "p_image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "RGB backlit, tactile blue switches, anti-ghosting keys."
+    },
+    {
+      "id": "E110_El",
+      "p_name": "Mirrorless 4K Camera",
+      "p_price": 85000,
+      "p_stock": 4,
+      "p_image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "24.2 MP, 4K video recording, and high-speed autofocus."
+    },
+    {
+      "id": "E111_Fa",
+      "p_name": "Aviator Sunglasses",
+      "p_price": 2500,
+      "p_stock": 22,
+      "p_image": "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?auto=format&fit=crop&w=800",
+      "p_category": "Fashion",
+      "p_description": "Polarized lenses with classic gold metal frames."
+    },
+    {
+      "id": "E114_El",
+      "p_name": "Smart Fitness Watch",
+      "p_price": 5000,
+      "p_stock": 25,
+      "p_image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "Heart rate monitor, GPS, and OLED always-on display."
+    },
+    {
+      "id": "E119_Fa",
+      "p_name": "Running Sneakers",
+      "p_price": 4500,
+      "p_stock": 16,
+      "p_image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800",
+      "p_category": "Fashion",
+      "p_description": "Breathable mesh with foam cushioning for long distance."
+    },
+    {
+      "id": "E122_El",
+      "p_name": "Portable Bluetooth Speaker",
+      "p_price": 3000,
+      "p_stock": 20,
+      "p_image": "https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "Waterproof IPX7 rating with deep bass and 12h playtime."
+    },
+    {
+      "id": "E125_Sp",
+      "p_name": "Tennis Racket",
+      "p_price": 6500,
+      "p_stock": 8,
+      "p_image": "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=800",
+      "p_category": "Sports",
+      "p_description": "Pro-style graphite racket for high control and spin."
+    },
+    {
+      "id": "E103_Fa",
+      "p_name": "Leather Chelsea Boots",
+      "p_price": 3500,
+      "p_stock": 8,
+      "p_image": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=800",
+      "p_category": "Fashion",
+      "p_description": "Premium tan leather with durable elastic side panels."
+    },
+    {
+      "id": "E104_HL",
+      "p_name": "Modern Ceramic Vase",
+      "p_price": 850,
+      "p_stock": 25,
+      "p_image": "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&fit=crop&w=800",
+      "p_category": "Home & Living",
+      "p_description": "Handcrafted minimalist white ceramic vase for contemporary decor."
+    },
+    {
+      "id": "E106_El",
+      "p_name": "Mechanical Gaming Keyboard",
+      "p_price": 5500,
+      "p_stock": 18,
+      "p_image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "RGB backlit, tactile blue switches, anti-ghosting keys."
+    },
+    {
+      "id": "E110_El",
+      "p_name": "Mirrorless 4K Camera",
+      "p_price": 85000,
+      "p_stock": 4,
+      "p_image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "24.2 MP, 4K video recording, and high-speed autofocus."
+    },
+    {
+      "id": "E114_El",
+      "p_name": "Smart Fitness Watch",
+      "p_price": 5000,
+      "p_stock": 25,
+      "p_image": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800",
+      "p_category": "Electronic",
+      "p_description": "Heart rate monitor, GPS, and OLED always-on display."
+    },
+    {
+      "id": "E145_Sp",
+      "p_name": "Basketball Size 7",
+      "p_price": 1400,
+      "p_stock": 20,
+      "p_image": "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800",
+      "p_category": "Contemporary",
+      "p_description": "Indoor/Outdoor composite leather for superior grip."
+    }
+  ],
+  "cart": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
