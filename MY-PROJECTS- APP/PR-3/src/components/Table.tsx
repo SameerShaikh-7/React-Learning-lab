@@ -34,7 +34,7 @@ export default function Table({ allEmployees, deleteEmployee, updateEmployee }: 
             </div>
 
             {/* Table Container */}
-            <div className="bg-white rounded-[1.5rem] shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 overflow-hidden">
                 <div className="overflow-x-auto">
                     <table className="min-w-full divide-y divide-slate-100">
                         <thead className="bg-slate-50/50">

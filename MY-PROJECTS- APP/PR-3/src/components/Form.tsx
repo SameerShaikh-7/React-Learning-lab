@@ -40,7 +40,7 @@ export default function Form({
             }, 0);
             return () => clearTimeout(timer);
         }
-    }, [editIndex, editEmployee]); 
+    },[editIndex, editEmployee] );
 
     const employeeFormSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ export default function Form({
             gender,
             city,
             address,
-            skills: editEmployee?.skills || [] 
+            skills: editEmployee?.skills || []
         };
 
         if (editIndex !== null) {
@@ -87,10 +87,10 @@ export default function Form({
                 <p className="mt-2 text-slate-500 font-medium">Manage and register healthcare professionals</p>
             </div>
 
-            <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/60 overflow-hidden border border-slate-100">
+            <div className="bg-white rounded-4xl shadow-2xl shadow-slate-200/60 overflow-hidden border border-slate-100">
                 <div className="bg-slate-900 px-8 py-5">
                     <h2 className="text-white font-bold tracking-widest uppercase text-[11px]">
-                        {editIndex !== null ? "📝 Modify Staff Record" : "➕ Register Healthcare Professional"}
+                        {editIndex !== null ? "📝 Modify Staff Record" : "Register Healthcare Professional"}
                     </h2>
                 </div>
 
