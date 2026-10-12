@@ -118,7 +118,7 @@ export default function AddBooking() {
   if (!isMounted) return null;
 
   const inputClass =
-    "w-full px-5 py-4 rounded-2xl text-sm font-medium outline-none transition-all duration-200 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-[#e0e0e0] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[50000s]";
+    "w-full px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-sm font-medium outline-none transition-all duration-200 [&:-webkit-autofill]:bg-transparent [&:-webkit-autofill]:text-[#e0e0e0] [&:-webkit-autofill]:transition-colors [&:-webkit-autofill]:duration-[50000s]";
   
   const inputStyle = (hasError?: string) => ({
     background: "rgba(255,255,255,0.04)",
@@ -130,26 +130,26 @@ export default function AddBooking() {
   const errorClass = "text-[10px] font-semibold uppercase mt-1.5";
 
   return (
-    <div className="min-h-screen px-4 pt-32 pb-24" style={{ background: "#0a0a0a" }}>
+    <div className="min-h-screen px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-24" style={{ background: "#0a0a0a" }}>
       <div className="max-w-3xl mx-auto">
 
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest mb-10 transition-all"
-          style={{ color: "#555" }}
+          className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest mb-8 sm:mb-10 transition-all hover:text-white"
+          style={{ color: "#777" }}
         >
           <ChevronLeft className="w-4 h-4" /> Back
         </button>
 
-        <div className="mb-14">
+        <div className="mb-8 sm:mb-14">
           <p
-            className="text-[10px] font-semibold uppercase tracking-[0.4em] mb-3"
+            className="text-[10px] font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3"
             style={{ color: "#d4af37" }}
           >
             New Booking
           </p>
           <h1
-            className="text-5xl md:text-6xl font-bold italic leading-none"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold italic leading-none"
             style={{ fontFamily: "'Cormorant Garamond', serif", color: "#ffffff" }}
           >
             Book Your{" "}
@@ -159,7 +159,7 @@ export default function AddBooking() {
 
         <form
           onSubmit={onSubmit}
-          className="space-y-10 rounded-[2.5rem] p-10 md:p-14"
+          className="space-y-6 sm:space-y-10 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-8 md:p-12 lg:p-14"
           style={{
             background: "rgba(255,255,255,0.02)",
             border: "1px solid rgba(255,255,255,0.06)",
@@ -273,22 +273,29 @@ export default function AddBooking() {
           </div>
 
           <div>
-            <label className={labelClass} style={{ color: "#555" }}>Service Type</label>
-            <div className="flex flex-wrap gap-6 mt-2">
+            <label className={labelClass} style={{ color: "#777" }}>Service Type</label>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mt-2">
               {serviceTypes.map((s, i) => (
-                <label key={i} className="flex items-center gap-3 cursor-pointer group">
+                <label
+                  key={i}
+                  className="flex items-center gap-3 p-3.5 sm:p-0 rounded-xl sm:rounded-none cursor-pointer group transition-all"
+                  style={{
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(255,255,255,0.05)",
+                  }}
+                >
                   <input
                     type="radio"
                     name="serviceType"
                     value={s}
                     checked={formData.serviceType === s}
                     onChange={handleChange}
-                    className="w-4 h-4"
+                    className="w-4 h-4 ml-1 sm:ml-0"
                     style={{ accentColor: "#d4af37" }}
                   />
                   <span
                     className="text-sm font-medium transition-colors"
-                    style={{ color: formData.serviceType === s ? "#ffffff" : "#555" }}
+                    style={{ color: formData.serviceType === s ? "#ffffff" : "#888" }}
                   >
                     {s}
                   </span>
@@ -301,8 +308,8 @@ export default function AddBooking() {
           </div>
 
           <div>
-            <label className={labelClass} style={{ color: "#555" }}>Editing Style</label>
-            <div className="flex flex-wrap gap-3 mt-2">
+            <label className={labelClass} style={{ color: "#777" }}>Editing Style</label>
+            <div className="flex flex-wrap gap-2 sm:gap-3 mt-2">
               {editingStyleOptions.map((style, i) => {
                 const selected = formData.editingStyles.includes(style);
                 return (
@@ -310,11 +317,11 @@ export default function AddBooking() {
                     key={i}
                     type="button"
                     onClick={() => handleStyleToggle(style)}
-                    className="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+                    className="px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-200 active:scale-95"
                     style={{
                       background: selected ? "linear-gradient(135deg, #d4af37, #b8962e)" : "rgba(255,255,255,0.04)",
                       border: selected ? "1px solid #d4af37" : "1px solid rgba(255,255,255,0.08)",
-                      color: selected ? "#0a0a0a" : "#555",
+                      color: selected ? "#0a0a0a" : "#777",
                     }}
                   >
                     {style}
@@ -328,33 +335,34 @@ export default function AddBooking() {
           </div>
 
           <div
-            className="flex items-center justify-between p-5 rounded-2xl"
+            className="flex items-center justify-between p-4 sm:p-5 rounded-xl sm:rounded-2xl gap-3"
             style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
           >
             <div>
-              <p className="text-sm font-medium" style={{ color: "#e0e0e0" }}>
+              <p className="text-xs sm:text-sm font-medium" style={{ color: "#e0e0e0" }}>
                 Preserve Natural Details
               </p>
-              <p className="text-xs mt-1" style={{ color: "#555" }}>
+              <p className="text-[11px] sm:text-xs mt-0.5 sm:mt-1" style={{ color: "#777" }}>
                 No heavy AI filters — keep your authentic look.
               </p>
             </div>
             <button
               type="button"
               onClick={handleToggle}
-              className="transition-all duration-200"
-              style={{ color: formData.keepOriginal ? "#d4af37" : "#333" }}
+              aria-label="Toggle natural details preservation"
+              className="transition-all duration-200 shrink-0"
+              style={{ color: formData.keepOriginal ? "#d4af37" : "#444" }}
             >
               {formData.keepOriginal ? (
-                <ToggleRight className="w-10 h-10" />
+                <ToggleRight className="w-9 h-9 sm:w-10 sm:h-10" />
               ) : (
-                <ToggleLeft className="w-10 h-10" />
+                <ToggleLeft className="w-9 h-9 sm:w-10 sm:h-10" />
               )}
             </button>
           </div>
 
           <div>
-            <label className={labelClass} style={{ color: "#555" }}>Special Instructions</label>
+            <label className={labelClass} style={{ color: "#777" }}>Special Instructions</label>
             <textarea
               name="specialNotes"
               rows={4}
@@ -366,10 +374,10 @@ export default function AddBooking() {
             />
           </div>
 
-          <div className="pt-4">
+          <div className="pt-2 sm:pt-4">
             <button
               type="submit"
-              className="w-full py-5 rounded-2xl text-sm font-semibold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.01] active:scale-95"
+              className="w-full py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.01] active:scale-95 shadow-lg"
               style={{
                 background: "linear-gradient(135deg, #d4af37, #b8962e)",
                 color: "#0a0a0a",

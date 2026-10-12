@@ -3,9 +3,17 @@ import "react-toastify/dist/ReactToastify.css";
 import NavBar from "./components/Navbar";
 import "./globals.css";
 
+import type { Viewport } from "next";
+
 export const metadata = {
   title: "ProShots — Premium Studio & Headshot Booking",
   description: "Book cinematic professional headshots and photo editing sessions.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -72,7 +72,7 @@ export default function HeroSlider() {
   const slide = slides[current];
 
   return (
-    <div className="relative h-screen w-full overflow-hidden" style={{ background: "#0a0a0a" }}>
+    <div className="relative min-h-[100dvh] h-[100dvh] w-full overflow-hidden" style={{ background: "#0a0a0a" }}>
       {/* Background image */}
       <div
         className="absolute inset-0 transition-all duration-700"
@@ -91,7 +91,7 @@ export default function HeroSlider() {
         className="absolute inset-0 z-10"
         style={{
           background:
-            "linear-gradient(to right, rgba(10,10,10,0.92) 40%, rgba(10,10,10,0.3) 100%)",
+            "linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.85) 45%, rgba(10,10,10,0.4) 100%)",
         }}
       />
 
@@ -107,14 +107,14 @@ export default function HeroSlider() {
 
       {/* Content */}
       <div className="absolute inset-0 z-20 flex items-center">
-        <div className="container mx-auto px-8 md:px-16">
+        <div className="container mx-auto px-5 sm:px-8 md:px-16 pt-16 pb-24 sm:py-0">
           <div
-            className="max-w-2xl space-y-8 transition-all duration-500"
+            className="max-w-2xl space-y-5 sm:space-y-7 transition-all duration-500"
             style={{ opacity: animating ? 0 : 1, transform: animating ? "translateY(16px)" : "translateY(0)" }}
           >
             {/* Label chip */}
             <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.25em] uppercase"
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase"
               style={{
                 background: "rgba(212,175,55,0.12)",
                 border: "1px solid rgba(212,175,55,0.3)",
@@ -130,7 +130,7 @@ export default function HeroSlider() {
 
             {/* Headline */}
             <h1
-              className="text-6xl md:text-8xl font-bold italic leading-none"
+              className="text-4xl sm:text-6xl md:text-8xl font-bold italic leading-[1.08] sm:leading-none"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 color: "#ffffff",
@@ -142,17 +142,17 @@ export default function HeroSlider() {
 
             {/* Subtext */}
             <p
-              className="text-lg leading-relaxed max-w-xl"
+              className="text-sm sm:text-base md:text-lg leading-relaxed max-w-xl"
               style={{ color: "#a0a0a0", fontWeight: 300 }}
             >
               {slide.sub}
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2 max-w-md sm:max-w-none">
               <Link
                 href="/addBooking"
-                className="flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                className="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
                 style={{
                   background: "linear-gradient(135deg, #d4af37, #b8962e)",
                   color: "#0a0a0a",
@@ -164,10 +164,11 @@ export default function HeroSlider() {
               </Link>
               <Link
                 href="/services"
-                className="px-8 py-4 rounded-full text-sm font-medium transition-all duration-300"
+                className="flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 rounded-full text-sm font-medium transition-all duration-300 active:scale-95 text-center"
                 style={{
                   border: "1px solid rgba(255,255,255,0.15)",
                   color: "#e0e0e0",
+                  background: "rgba(255,255,255,0.02)",
                 }}
               >
                 View Packages
@@ -177,22 +178,49 @@ export default function HeroSlider() {
         </div>
       </div>
 
+      {/* Mobile bottom nav controls */}
+      <div className="sm:hidden absolute bottom-6 left-5 z-30 flex items-center gap-2">
+        <button
+          onClick={prev}
+          aria-label="Previous slide"
+          className="p-2 rounded-full transition-all duration-200 active:scale-90"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.12)",
+          }}
+        >
+          <ChevronLeft className="w-4 h-4 text-white" />
+        </button>
+        <button
+          onClick={next}
+          aria-label="Next slide"
+          className="p-2 rounded-full transition-all duration-200 active:scale-90"
+          style={{
+            background: "rgba(255,255,255,0.08)",
+            border: "1px solid rgba(255,255,255,0.12)",
+          }}
+        >
+          <ChevronRight className="w-4 h-4 text-white" />
+        </button>
+      </div>
+
       {/* Slide counter */}
-      <div className="absolute bottom-10 right-10 z-30 flex items-center gap-3">
+      <div className="absolute bottom-6 right-5 sm:bottom-10 sm:right-10 z-30 flex items-center gap-3">
         <span
-          className="text-4xl font-bold italic"
+          className="text-3xl sm:text-4xl font-bold italic"
           style={{ fontFamily: "'Cormorant Garamond', serif", color: "#d4af37" }}
         >
           0{current + 1}
         </span>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1.5">
           {slides.map((_, i) => (
             <button
               key={i}
               onClick={() => go(i)}
+              aria-label={`Go to slide ${i + 1}`}
               className="transition-all duration-300 rounded-full"
               style={{
-                width: i === current ? "24px" : "4px",
+                width: i === current ? "20px" : "4px",
                 height: "4px",
                 background: i === current ? "#d4af37" : "rgba(255,255,255,0.2)",
               }}
@@ -201,10 +229,11 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Nav arrows */}
+      {/* Desktop/Tablet Nav arrows */}
       <button
         onClick={prev}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full transition-all duration-200"
+        aria-label="Previous slide"
+        className="hidden sm:flex absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
         style={{
           background: "rgba(255,255,255,0.06)",
           border: "1px solid rgba(255,255,255,0.1)",
@@ -214,7 +243,8 @@ export default function HeroSlider() {
       </button>
       <button
         onClick={next}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full transition-all duration-200"
+        aria-label="Next slide"
+        className="hidden sm:flex absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
         style={{
           background: "rgba(255,255,255,0.06)",
           border: "1px solid rgba(255,255,255,0.1)",

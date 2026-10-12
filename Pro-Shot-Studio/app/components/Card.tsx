@@ -11,7 +11,7 @@ type CardProps = {
 export default function Card({ title, price, features, tag, highlighted = false }: CardProps) {
   return (
     <div
-      className="relative flex flex-col rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1"
+      className="relative flex flex-col rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1"
       style={{
         background: highlighted
           ? "linear-gradient(135deg, rgba(212,175,55,0.12), rgba(212,175,55,0.04))"
@@ -27,7 +27,7 @@ export default function Card({ title, price, features, tag, highlighted = false 
       {/* Tag */}
       {tag && (
         <div
-          className="absolute -top-3 left-8 px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest"
+          className="absolute -top-3 left-6 sm:left-8 px-3.5 sm:px-4 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest shadow-md"
           style={{
             background: highlighted ? "#d4af37" : "rgba(255,255,255,0.08)",
             color: highlighted ? "#0a0a0a" : "#a0a0a0",
@@ -50,21 +50,21 @@ export default function Card({ title, price, features, tag, highlighted = false 
 
       {/* Price */}
       <p
-        className="text-4xl font-bold mt-3 mb-6"
+        className="text-3xl sm:text-4xl font-bold mt-2 sm:mt-3 mb-5 sm:mb-6"
         style={{
           fontFamily: "'Cormorant Garamond', serif",
           color: "#ffffff",
         }}
       >
         {price}
-        <span className="text-sm font-normal ml-1" style={{ color: "#555" }}>
+        <span className="text-xs sm:text-sm font-normal ml-1" style={{ color: "#777" }}>
           / session
         </span>
       </p>
 
       {/* Divider */}
       <div
-        className="mb-6"
+        className="mb-5 sm:mb-6"
         style={{
           height: "1px",
           background: highlighted
@@ -74,12 +74,12 @@ export default function Card({ title, price, features, tag, highlighted = false 
       />
 
       {/* Features */}
-      <ul className="flex flex-col gap-3 flex-1">
+      <ul className="flex flex-col gap-2.5 sm:gap-3 flex-1">
         {features.map((f, idx) => (
-          <li key={idx} className="flex items-start gap-3 text-sm" style={{ color: "#a0a0a0" }}>
+          <li key={idx} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm leading-relaxed" style={{ color: "#a0a0a0" }}>
             <Check
               className="w-4 h-4 mt-0.5 shrink-0"
-              style={{ color: highlighted ? "#d4af37" : "#555" }}
+              style={{ color: highlighted ? "#d4af37" : "#666" }}
             />
             {f}
           </li>
@@ -89,7 +89,7 @@ export default function Card({ title, price, features, tag, highlighted = false 
       {/* CTA */}
       <a
         href="/addBooking"
-        className="mt-8 block text-center py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+        className="mt-6 sm:mt-8 block text-center py-3.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-95"
         style={{
           background: highlighted
             ? "linear-gradient(135deg, #d4af37, #b8962e)"

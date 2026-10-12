@@ -9,17 +9,17 @@ export default function Home() {
       <HeroSlider />
 
       {/* Services Section */}
-      <section className="py-28 px-6" id="services">
+      <section className="py-16 sm:py-24 md:py-28 px-4 sm:px-6" id="services">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 sm:mb-16">
             <p
-              className="text-xs font-semibold tracking-[0.4em] uppercase mb-4"
+              className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-3"
               style={{ color: "#d4af37" }}
             >
               What We Offer
             </p>
             <h2
-              className="text-5xl md:text-6xl font-bold italic"
+              className="text-3xl sm:text-5xl md:text-6xl font-bold italic"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 color: "#ffffff",
@@ -27,13 +27,13 @@ export default function Home() {
             >
               Our Packages.
             </h2>
-            <p className="mt-4 text-base max-w-xl mx-auto" style={{ color: "#555", fontWeight: 300 }}>
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base max-w-xl mx-auto px-2" style={{ color: "#777", fontWeight: 300 }}>
               Transparent pricing, premium results. Every package includes natural retouching
               that respects your original appearance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {servicePackages.map((pkg, idx) => (
               <Card
                 key={idx}
@@ -49,15 +49,15 @@ export default function Home() {
       </section>
 
       {/* Footer strip */}
-      <div
-        className="py-8 text-center text-xs tracking-widest uppercase"
+      <footer
+        className="py-6 sm:py-8 px-4 text-center text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase"
         style={{
-          color: "#333",
+          color: "#444",
           borderTop: "1px solid rgba(255,255,255,0.04)",
         }}
       >
         © 2025 ProShots — Premium Studio. All rights reserved.
-      </div>
+      </footer>
     </main>
   );
 }

@@ -46,18 +46,18 @@ export default function ViewBookings() {
 
     return (
         <div className="min-h-screen" style={{ background: "#0a0a0a" }}>
-            <div className="max-w-7xl mx-auto px-6 pt-28 pb-24">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 sm:pb-24">
 
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 sm:gap-6 mb-8 sm:mb-12">
                     <div>
                         <p
-                            className="text-[10px] font-semibold uppercase tracking-[0.4em] mb-3"
+                            className="text-[10px] font-semibold uppercase tracking-[0.3em] sm:tracking-[0.4em] mb-2 sm:mb-3"
                             style={{ color: "#d4af37" }}
                         >
                             Session Log
                         </p>
                         <h1
-                            className="text-5xl font-bold italic leading-none"
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold italic leading-none"
                             style={{ fontFamily: "'Cormorant Garamond', serif", color: "#fff" }}
                         >
                             All Bookings.
@@ -65,7 +65,7 @@ export default function ViewBookings() {
                     </div>
                     <button
                         onClick={() => router.push("/addBooking")}
-                        className="self-start md:self-auto px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105"
+                        className="w-full sm:w-auto px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 text-center shadow-lg"
                         style={{
                             background: "linear-gradient(135deg, #d4af37, #b8962e)",
                             color: "#0a0a0a",
@@ -76,9 +76,9 @@ export default function ViewBookings() {
                     </button>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
 
-                    <aside className="lg:w-64 shrink-0 space-y-4">
+                    <aside className="lg:w-64 shrink-0 grid grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
                         {[
                             { icon: <LayoutGrid className="w-4 h-4" />, label: "Total Sessions", value: allBookings.length, accent: "#d4af37" },
                             { icon: <Monitor className="w-4 h-4" />, label: "Platforms", value: uniquePlatforms, accent: "#60a5fa" },
@@ -87,7 +87,7 @@ export default function ViewBookings() {
                         ].map((stat, i) => (
                             <div
                                 key={i}
-                                className="flex items-center gap-4 px-5 py-4 rounded-2xl"
+                                className="flex items-center gap-3 sm:gap-4 p-3.5 sm:px-5 sm:py-4 rounded-xl sm:rounded-2xl"
                                 style={{
                                     background: "rgba(255,255,255,0.02)",
                                     border: "1px solid rgba(255,255,255,0.06)",
@@ -99,12 +99,12 @@ export default function ViewBookings() {
                                 >
                                     {stat.icon}
                                 </div>
-                                <div>
-                                    <p className="text-[9px] font-semibold uppercase tracking-widest" style={{ color: "#444" }}>
+                                <div className="min-w-0">
+                                    <p className="text-[9px] font-semibold uppercase tracking-wider truncate" style={{ color: "#777" }}>
                                         {stat.label}
                                     </p>
                                     <p
-                                        className="text-2xl font-bold italic leading-none mt-0.5"
+                                        className="text-xl sm:text-2xl font-bold italic leading-none mt-1"
                                         style={{ fontFamily: "'Cormorant Garamond', serif", color: "#fff" }}
                                     >
                                         {stat.value}
@@ -116,16 +116,31 @@ export default function ViewBookings() {
 
                     <div className="flex-1 min-w-0">
 
-                        <p className="text-[10px] font-semibold uppercase tracking-widest mb-5" style={{ color: "#333" }}>
-                            {filtered.length} {filtered.length === 1 ? "session" : "sessions"} found
-                        </p>
+                        {/* Search input & session count */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
+                            <input
+                                type="text"
+                                placeholder="Search by name, email, or platform..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full sm:max-w-xs px-4 py-2.5 rounded-xl text-xs outline-none transition-all"
+                                style={{
+                                    background: "rgba(255,255,255,0.03)",
+                                    border: "1px solid rgba(255,255,255,0.07)",
+                                    color: "#e0e0e0",
+                                }}
+                            />
+                            <p className="text-[10px] font-semibold uppercase tracking-widest text-right sm:text-left" style={{ color: "#555" }}>
+                                {filtered.length} {filtered.length === 1 ? "session" : "sessions"} found
+                            </p>
+                        </div>
 
                         {filtered.length > 0 ? (
                             <div className="space-y-3">
                                 {filtered.map((booking, idx) => (
                                     <div
                                         key={booking.id}
-                                        className="group flex flex-col sm:flex-row sm:items-center gap-4 px-6 py-5 rounded-2xl transition-all duration-300"
+                                        className="group flex flex-col sm:flex-row sm:items-center gap-4 p-4 sm:px-6 sm:py-5 rounded-xl sm:rounded-2xl transition-all duration-300"
                                         style={{
                                             background: "rgba(255,255,255,0.02)",
                                             border: "1px solid rgba(255,255,255,0.05)",
@@ -137,10 +152,10 @@ export default function ViewBookings() {
                                             (e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)")
                                         }
                                     >
-                                        <div className="flex items-center gap-4 shrink-0">
+                                        <div className="flex items-center gap-3 sm:gap-4 shrink-0">
                                             <span
                                                 className="text-[10px] font-semibold w-5 text-right"
-                                                style={{ color: "#333" }}
+                                                style={{ color: "#444" }}
                                             >
                                                 {String(idx + 1).padStart(2, "0")}
                                             </span>
@@ -159,7 +174,7 @@ export default function ViewBookings() {
                                         </div>
 
                                         <div className="flex-1 min-w-0">
-                                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
+                                            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-1">
                                                 <h3
                                                     className="text-base font-bold italic"
                                                     style={{ fontFamily: "'Cormorant Garamond', serif", color: "#fff" }}
@@ -169,12 +184,12 @@ export default function ViewBookings() {
                                                 
                                                 {booking.packageTier && (
                                                     <span
-                                                        className={`text-[9px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                                                        className={`text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                                                             booking.packageTier === "Premium"
                                                                 ? "bg-amber-500/10 text-amber-500 border border-amber-500/20"
                                                                 : booking.packageTier === "Corporate Team"
                                                                 ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
-                                                                : "bg-white/5 text-zinc-500"
+                                                                : "bg-white/5 text-zinc-400"
                                                         }`}
                                                     >
                                                         {booking.packageTier || "Basic"}
@@ -183,14 +198,14 @@ export default function ViewBookings() {
 
                                                 {booking.keepOriginal && (
                                                     <span
-                                                        className="text-[9px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full"
+                                                        className="text-[9px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full"
                                                         style={{ background: "rgba(74,222,128,0.08)", color: "#4ade80" }}
                                                     >
                                                         ✦ Natural
                                                     </span>
                                                 )}
                                             </div>
-                                            <p className="text-xs truncate" style={{ color: "#555" }}>
+                                            <p className="text-xs text-zinc-400 break-words leading-relaxed sm:truncate">
                                                 {booking.clientEmail} · {booking.serviceType} · {booking.platformIntent}
                                             </p>
 
@@ -202,7 +217,7 @@ export default function ViewBookings() {
                                                             className="text-[9px] uppercase tracking-wider px-2 py-0.5 rounded"
                                                             style={{
                                                                 background: "rgba(255,255,255,0.04)",
-                                                                color: "#555",
+                                                                color: "#777",
                                                                 border: "1px solid rgba(255,255,255,0.06)",
                                                             }}
                                                         >
@@ -213,15 +228,16 @@ export default function ViewBookings() {
                                             )}
                                         </div>
 
-                                        <div className="flex items-center gap-2 shrink-0">
+                                        <div className="flex items-center justify-end sm:justify-start gap-2 pt-2.5 sm:pt-0 border-t border-white/[0.04] sm:border-t-0 shrink-0">
                                             <button
                                                 onClick={() => router.push(`/editBooking/${booking.id}`)}
                                                 title="Edit booking"
-                                                className="p-2.5 rounded-xl transition-all duration-200"
+                                                aria-label="Edit booking"
+                                                className="p-2 sm:p-2.5 rounded-xl transition-all duration-200"
                                                 style={{
                                                     background: "rgba(255,255,255,0.04)",
                                                     border: "1px solid rgba(255,255,255,0.07)",
-                                                    color: "#666",
+                                                    color: "#888",
                                                 }}
                                                 onMouseEnter={(e) => {
                                                     (e.currentTarget as HTMLButtonElement).style.background = "rgba(212,175,55,0.1)";
@@ -230,7 +246,7 @@ export default function ViewBookings() {
                                                 }}
                                                 onMouseLeave={(e) => {
                                                     (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)";
-                                                    (e.currentTarget as HTMLButtonElement).style.color = "#666";
+                                                    (e.currentTarget as HTMLButtonElement).style.color = "#888";
                                                     (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.07)";
                                                 }}
                                             >
@@ -239,11 +255,12 @@ export default function ViewBookings() {
                                             <button
                                                 onClick={() => deleteBooking(booking.id)}
                                                 title="Remove booking"
-                                                className="p-2.5 rounded-xl transition-all duration-200"
+                                                aria-label="Remove booking"
+                                                className="p-2 sm:p-2.5 rounded-xl transition-all duration-200"
                                                 style={{
                                                     background: "rgba(255,255,255,0.04)",
                                                     border: "1px solid rgba(255,255,255,0.07)",
-                                                    color: "#666",
+                                                    color: "#888",
                                                 }}
                                                 onMouseEnter={(e) => {
                                                     (e.currentTarget as HTMLButtonElement).style.background = "rgba(239,68,68,0.08)";
@@ -252,7 +269,7 @@ export default function ViewBookings() {
                                                 }}
                                                 onMouseLeave={(e) => {
                                                     (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.04)";
-                                                    (e.currentTarget as HTMLButtonElement).style.color = "#666";
+                                                    (e.currentTarget as HTMLButtonElement).style.color = "#888";
                                                     (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.07)";
                                                 }}
                                             >
@@ -264,7 +281,7 @@ export default function ViewBookings() {
                             </div>
                         ) : (
                             <div
-                                className="flex flex-col items-center justify-center py-32 rounded-3xl"
+                                className="flex flex-col items-center justify-center py-20 sm:py-32 rounded-2xl sm:rounded-3xl px-4"
                                 style={{
                                     background: "rgba(255,255,255,0.01)",
                                     border: "1px dashed rgba(255,255,255,0.07)",
